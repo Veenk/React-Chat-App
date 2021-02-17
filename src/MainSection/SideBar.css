@@ -1,0 +1,47 @@
+.sidebar{
+    background-color: lavender;
+    display: flex;
+    flex-direction: column;
+    flex: 0.4;
+    overflow-y: scroll;
+    margin-right: 5px;
+    padding: 1vw;
+    margin-bottom: 2vh;
+    height: 84vh;
+
+
+
+}
+
+.search{
+
+    margin-top: 1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 6px;
+    padding: 0 50px;
+
+}
+.contact_search{
+    background-color: transparent;
+    border: none;
+    margin-left: 1vw;
+    min-width: 50px;
+    padding: 10px 0;
+
+
+}
+
+.contacts{
+    position: sticky;
+    border-top: solid #17252a 3px;
+    border-radius: 6px;
+    margin-top: 1vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #def2f1;
+}
+

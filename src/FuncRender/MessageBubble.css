@@ -1,0 +1,112 @@
+.message_bubble_received{
+    cursor: pointer;
+    margin: 6px;
+    display: flex;
+    flex-direction: row;
+
+}
+.selected {
+    background-color: #21343c;
+}
+.not_selected {
+    background-color: inherit;
+}
+
+/*.message_bubble_received:active{*/
+/*    background-color: #21343c;*/
+/*}*/
+
+.message_bubble_received .message_bubble_content{
+
+    border: solid;
+    border-radius: 6px;
+    border-color: blueviolet;
+    background-color: blueviolet;
+    font-size: medium;
+    padding: 10px;
+    margin-left: 10px;
+    max-width: 20vw;
+
+    display: flex;
+    flex-direction: column;
+}
+.message_bubble_sent{
+    cursor: pointer;
+    margin: 6px;
+    display: flex;
+    flex-direction: row-reverse;
+
+}
+.message_bubble_sent .message_bubble_content{
+
+    border: solid;
+    border-radius: 6px;
+    border-color: lightsalmon;
+    background-color: lightsalmon;
+    font-size: medium;
+    padding: 10px;
+    margin-right: 10px;
+    max-width: 20vw;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.message_bubble_avatar{
+
+}
+
+
+.message_bubble_received .top_row{
+    color: #FeFFFF;
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:  center;
+    margin-bottom: 6px;
+    text-overflow: ellipsis;
+    white-space:nowrap
+}
+
+.message_bubble_sent .top_row{
+    color: #FeFFFF;
+    font-size: large;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items:  center;
+    margin-bottom: 6px;
+    text-overflow: ellipsis;
+    white-space:nowrap
+}
+.top_row span{
+    font-size: small;
+    color: rgba(255, 255, 255, 0.5);
+}
+.name{
+
+}
+.bottom_row{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.message{
+    overflow-wrap: break-word;
+    color: #FeFFFF;
+    font-size: x-large;
+}
+.bottom_row span{
+
+    margin-left: 20px;
+    color: rgba(255, 255, 255, 0.5);
+ }
+.delete {
+    cursor: auto;
+    align-self: flex-end;
+    z-index: 1;
+    background-color: #def2f1;
+}

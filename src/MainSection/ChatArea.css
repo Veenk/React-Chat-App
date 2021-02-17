@@ -1,0 +1,80 @@
+
+.chat{
+    flex: 0.6;
+    background-color: #FeFFFF;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2vh;
+
+    max-height:88vh
+
+}
+.chat::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+.chat::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+
+.chat::-webkit-scrollbar-thumb {
+    background: #6649b8;
+}
+.input_message{
+
+     flex:0.1;
+     position: sticky;
+
+     bottom: 0;
+     display: flex;
+
+ }
+.form_message{
+    width: 100%;
+
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    font-size: 1.5rem;
+
+
+}
+.form_message > input{
+
+    line-height: 1.5;
+    width: 100%;
+    font-size: 1.5rem;
+    background: lavender;
+    color: #17252a;
+    outline: none;
+    border: none;
+    padding: 0 10px;
+
+
+}
+.form_message button {
+    width: 20%;
+    background-color: lavender;
+}
+
+.message_bubbles{
+
+    background-color: #17252a;
+    overflow-y: scroll;
+    flex:0.9;
+    display: flex;
+    height: 100%;
+    flex-direction:  column;
+    justify-content: flex-end;
+}
+.message_bubbles::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+.message_bubbles::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+
+.message_bubbles::-webkit-scrollbar-thumb {
+    background: #6649b8;
+}
+
