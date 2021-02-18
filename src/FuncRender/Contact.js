@@ -11,12 +11,12 @@ function Contact({uid,chat_id}){
     const chat = chat_id.trim(" ")
     const history = useHistory();
     const [contact, setContact] = useState({})
-    const [credidentials, setCredidentials] = useState({})
+    const [credentials, setCredentials] = useState({})
     let ava;
 
     const chats_collection = db.collection('chats');
     const users_collection = db.collection('users');
-    const messages_collection = chats_collection.doc(chat).collection("messages");
+
 
     db.collection('users').doc(uid).onSnapshot(snap =>{
         ava = snap.data().photoURL
@@ -34,19 +34,19 @@ function Contact({uid,chat_id}){
                         avatar: ava
                         })
                     }
+
                 })
 
             })
         },[])
 
     useEffect( () => {
-        console.log(contact.user_id)
         users_collection.doc(contact.user_id).get().then((ref) => {
             if (ref.exists) {
-                setCredidentials({name: ref.data().name, photo: ref.data().photoURL})
+                setCredentials({name: ref.data().name, photo: ref.data().photoURL})
             }
         }).catch((error) => console.log("Error getting document:", error))
-    }, [])
+    }, [contact])
 
     const showChat = () => {
         history.push(`/chat/${chat}`)
@@ -54,16 +54,16 @@ function Contact({uid,chat_id}){
 
     return (
             <div className="contact_n" onClick={showChat}>
-                <span className="tooltiptext">{chat_id}</span>
+                {/*<span className="tooltiptext">{chat_id}</span>*/}
                 <div className="contact_avatar">
 
-                    <Avatar src = {credidentials.photo}>
+                    <Avatar src = {credentials.photo}>
 
                     </Avatar>
                 </div>
                 <div className="content">
                     <div className="credidentials">
-                        {credidentials.name}
+                        {credentials.name}
                     </div>
                     <div className="msg_preview">
                         {contact.last_msg}

@@ -16,9 +16,10 @@ function SideBar(){
     const users_collection = db.collection('users');
     useEffect(() => {
         users_collection.doc(uid).onSnapshot(snapshot => {
-            setChats(snapshot.data().chats);
+            if(snapshot.get("chats") !== undefined){
+                setChats(snapshot.data().chats)
+            }
         })
-
     }, [])
 
     const searchForUser = async(e) =>{
@@ -50,10 +51,9 @@ function SideBar(){
                 <input placeholder="search for user by email" className="contact_search" value={search} onChange={(e) => setSearch(e.target.value)}/>
             </div>
             <div className='contacts'>
-                {console.log(chats)}
                 {chats && chats.map(chat => (
 
-                        <Contact chat_id={chat} uid={uid}/>
+                        chat !== ""? <Contact chat_id={chat} uid={uid}/> : {}
                     ))}
             </div>
         </section>

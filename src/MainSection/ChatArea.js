@@ -11,12 +11,14 @@ import {useParams} from "react-router-dom";
 
 function ChatArea(){
     const {chat_id} = useParams();
+
+
+
     const chats_collection = db.collection('chats');
     const [formMessage, setFormMessage] = useState("");
     const [Messages, setMessages] = useState({});
     const [inputClass, setInputClass] = useState(0);
     const [update, setUpdate] = useState(0);
-
 
     const messages_collection = chats_collection.doc(chat_id).collection("messages");
     const [messages] = useCollectionData(messages_collection.orderBy('createdAt').limit(25), {idField: 'id'});
@@ -33,7 +35,6 @@ function ChatArea(){
             })
         }else{
             if (formMessage !== "") {
-                console.log("adding");
                 await chats_collection.doc(chat_id).update({last_message: formMessage})
                 await messages_collection.add({
                     text: formMessage,
@@ -42,7 +43,6 @@ function ChatArea(){
                     edited: false
                 }).then((t) => {
                     setFormMessage('');
-
                 } );
 
             }

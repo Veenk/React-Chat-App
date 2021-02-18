@@ -16,11 +16,12 @@ import db, {auth, provider} from "./firebase";
 
 function App() {
     const [user] = useAuthState(auth);
+
     const [users_collection] = useCollectionData(db.collection('users'))
       return (
 
           <section>
-              {<SignOut/>}
+
               {user ? <div className='app'>
                   <Header url = {auth.currentUser.photoURL}>
                   </Header>
@@ -38,34 +39,39 @@ function SignOut(){
 }
 
 function SignIn(){
-    auth.onAuthStateChanged(function(user) {
-        if (user) {
-
-            const users = db.collection('users');
-            const {uid, photoURL, displayName, email} = auth.currentUser;
-            console.log("loging "+ users.doc(uid).id)
-            var flag = false;
-            flag = users.docs.map(doc => {
-                if (doc.id === uid){
-                    return true
-                }
-
-            })
-            if (!flag){
-                console.log("im in" + uid)
-                users.doc(uid).set({
-                    name: displayName,
-                    email: email,
-                    photoURL: photoURL,
-                    chats: []
-                }).then();
-            }
-
-        } else {
-        }
-    });
+    // auth.onAuthStateChanged(function(user) {
+    //     if (user) {
+    //
+    //
+    //
+    //         // if (users.doc(uid).id){
+    //         //     console.log("im in" + uid)
+    //         //     users.doc(uid).add({
+    //         //         name: displayName,
+    //         //         email: email,
+    //         //         photoURL: photoURL,
+    //         //     }).then();
+    //         // }
+    //
+    //     } else {
+    //     }
+    // });
     const signInWithGoogle = () => {
-        auth.signInWithPopup(provider);
+        auth.signInWithPopup(provider).then(
+            results => {
+                const users = db.collection('users');
+                const {uid, photoURL, displayName, email} = auth.currentUser;
+                users.doc(uid).get().then((docSnapshot) => {
+                        if (!docSnapshot.exists) {
+                            users.doc(uid).set({
+                                name: displayName,
+                                email: email,
+                                photoURL: photoURL
+                            }) // create the document
+                        }
+                    });
+            }
+        );
     }
     return(
         <button onClick = {signInWithGoogle}>Sign in with Google</button>

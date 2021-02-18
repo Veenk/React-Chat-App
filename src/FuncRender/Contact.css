@@ -14,24 +14,23 @@
 .contact_n:hover{
     opacity: 0.8;
 }
-.contact_n .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
+/*.contact_n .tooltiptext {*/
+/*    visibility: hidden;*/
+/*    width: 120px;*/
+/*    background-color: black;*/
+/*    color: #fff;*/
+/*    text-align: center;*/
+/*    padding: 5px 0;*/
+/*    border-radius: 6px;*/
+/*    */
+/*    position: absolute;*/
+/*    z-index: 1;*/
+/*}*/
 
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
-}
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.contact_n:hover .tooltiptext {
-    visibility: visible;
-}
+/*.contact_n:hover .tooltiptext {*/
+/*    visibility: visible;*/
+/*}*/
 
 .content{
     flex: 0.9;
